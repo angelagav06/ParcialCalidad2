@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parque Aventura | Gestión de Atracciones</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="logo">🎢</div>
+            <div>
+                <h1>Parque Aventura</h1>
+                <p>Sistema de gestión de atracciones</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- RESUMEN -->
+        <section class="dashboard">
+            <div class="stat-card">
+                <span class="stat-icon">🎢</span>
+                <div>
+                    <span class="stat-label">Total de atracciones</span>
+                    <strong id="totalAtracciones">0</strong>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">🟢</span>
+                <div>
+                    <span class="stat-label">Disponibles</span>
+                    <strong id="atraccionesDisponibles">0</strong>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">🔧</span>
+                <div>
+                    <span class="stat-label">En mantenimiento</span>
+                    <strong id="atraccionesMantenimiento">0</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULARIO -->
+        <section class="card">
+            <div class="section-title">
+                <div>
+                    <h2 id="tituloFormulario">Registrar atracción</h2>
+                    <p>Agrega una nueva atracción al parque</p>
+                </div>
+            </div>
+
+            <form id="formAtraccion">
+
+                <div class="form-group">
+                    <label for="nombre">Nombre de la atracción</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        placeholder="Ej: Montaña Rusa"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo">Tipo de atracción</label>
+                    <select id="tipo" required>
+                        <option value="">Seleccione un tipo</option>
+                        <option value="Extrema">Extrema</option>
+                        <option value="Familiar">Familiar</option>
+                        <option value="Infantil">Infantil</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="edadMinima">Edad mínima</label>
+                    <input
+                        type="number"
+                        id="edadMinima"
+                        min="0"
+                        placeholder="Ej: 12"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="capacidad">Capacidad de personas</label>
+                    <input
+                        type="number"
+                        id="capacidad"
+                        min="1"
+                        placeholder="Ej: 24"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select id="estado" required>
+                        <option value="Disponible">Disponible</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary" id="btnGuardar">
+                        ➕ Registrar atracción
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn-secondary hidden"
+                        id="btnCancelar"
+                    >
+                        Cancelar
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- LISTA -->
+        <section class="card">
+
+            <div class="section-title list-header">
+                <div>
+                    <h2>Lista de atracciones</h2>
+                    <p>Consulta y administra las atracciones del parque</p>
+                </div>
+
+                <span class="badge" id="contadorLista">0 registros</span>
+            </div>
+
+            <!-- FILTROS -->
+            <div class="filters">
+
+                <div class="search-box">
+                    <span>🔎</span>
+                    <input
+                        type="text"
+                        id="buscar"
+                        placeholder="Buscar por nombre..."
+                    >
+                </div>
+
+                <select id="filtroEstado">
+                    <option value="Todos">Todos los estados</option>
+                    <option value="Disponible">Disponibles</option>
+                    <option value="Mantenimiento">Mantenimiento</option>
+                </select>
+
+            </div>
+
+            <!-- TABLA -->
+            <div class="table-container">
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Atracción</th>
+                            <th>Tipo</th>
+                            <th>Edad mínima</th>
+                            <th>Capacidad</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tablaAtracciones"></tbody>
+
+                </table>
+
+                <div id="mensajeVacio" class="empty-state">
+                    <div>🎢</div>
+                    <h3>No hay atracciones registradas</h3>
+                    <p>Agrega tu primera atracción usando el formulario.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>🎢 Parque Aventura · Sistema de Administración</p>
+    </footer>
+
+    <script src="js/atracciones.js"></script>
+
+</body>
+</html>
