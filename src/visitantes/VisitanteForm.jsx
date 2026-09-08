@@ -1,29 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function VisitanteForm({ visitanteEditando, onGuardar, onCancelar }) {
-  const [nombre, setNombre] = useState("");
-  const [edad, setEdad] = useState("");
-  const [tipoEntrada, setTipoEntrada] = useState("Normal");
-  const [fechaIngreso, setFechaIngreso] = useState("");
-
-  // Si estamos editando, llenamos el formulario con los datos existentes
-  useEffect(() => {
-    if (visitanteEditando) {
-      setNombre(visitanteEditando.nombre);
-      setEdad(visitanteEditando.edad);
-      setTipoEntrada(visitanteEditando.tipoEntrada);
-      setFechaIngreso(visitanteEditando.fechaIngreso);
-    } else {
-      limpiarFormulario();
-    }
-  }, [visitanteEditando]);
-
-  function limpiarFormulario() {
-    setNombre("");
-    setEdad("");
-    setTipoEntrada("Normal");
-    setFechaIngreso("");
-  }
+  const [nombre, setNombre] = useState(visitanteEditando?.nombre || "");
+  const [edad, setEdad] = useState(visitanteEditando?.edad || "");
+  const [tipoEntrada, setTipoEntrada] = useState(visitanteEditando?.tipoEntrada || "Normal");
+  const [fechaIngreso, setFechaIngreso] = useState(visitanteEditando?.fechaIngreso || "");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -41,7 +22,6 @@ function VisitanteForm({ visitanteEditando, onGuardar, onCancelar }) {
     };
 
     onGuardar(datosVisitante);
-    limpiarFormulario();
   }
 
   return (

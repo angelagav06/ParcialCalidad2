@@ -55,6 +55,7 @@ function VisitantesPage() {
       <h2>Gestión de Visitantes</h2>
 
       <VisitanteForm
+        key={visitanteEditando ? visitanteEditando.id : "nuevo"}
         visitanteEditando={visitanteEditando}
         onGuardar={handleGuardar}
         onCancelar={handleCancelarEdicion}
