@@ -21,8 +21,8 @@
 
     <main class="container">
 
-        <!-- RESUMEN -->
         <section class="dashboard">
+
             <div class="stat-card">
                 <span class="stat-icon">🎢</span>
                 <div>
@@ -46,10 +46,11 @@
                     <strong id="atraccionesMantenimiento">0</strong>
                 </div>
             </div>
+
         </section>
 
-        <!-- FORMULARIO -->
         <section class="card">
+
             <div class="section-title">
                 <div>
                     <h2 id="tituloFormulario">Registrar atracción</h2>
@@ -110,7 +111,12 @@
                 </div>
 
                 <div class="form-actions">
-                    <button type="submit" class="btn-primary" id="btnGuardar">
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                        id="btnGuardar"
+                    >
                         ➕ Registrar atracción
                     </button>
 
@@ -121,28 +127,33 @@
                     >
                         Cancelar
                     </button>
+
                 </div>
 
             </form>
+
         </section>
 
-        <!-- LISTA -->
         <section class="card">
 
             <div class="section-title list-header">
+
                 <div>
                     <h2>Lista de atracciones</h2>
                     <p>Consulta y administra las atracciones del parque</p>
                 </div>
 
-                <span class="badge" id="contadorLista">0 registros</span>
+                <span class="badge" id="contadorLista">
+                    0 registros
+                </span>
+
             </div>
 
-            <!-- FILTROS -->
             <div class="filters">
 
                 <div class="search-box">
                     <span>🔎</span>
+
                     <input
                         type="text"
                         id="buscar"
@@ -158,8 +169,8 @@
 
             </div>
 
-            <!-- TABLA -->
             <div class="table-container">
+
                 <table>
 
                     <thead>
@@ -179,9 +190,15 @@
                 </table>
 
                 <div id="mensajeVacio" class="empty-state">
+
                     <div>🎢</div>
+
                     <h3>No hay atracciones registradas</h3>
-                    <p>Agrega tu primera atracción usando el formulario.</p>
+
+                    <p>
+                        Agrega tu primera atracción usando el formulario.
+                    </p>
+
                 </div>
 
             </div>
