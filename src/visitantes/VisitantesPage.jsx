@@ -7,12 +7,12 @@ import {
   actualizarVisitante,
   eliminarVisitante,
 } from "./visitantesStorage";
+import "./visitantes.css";
 
 function VisitantesPage() {
   const [visitantes, setVisitantes] = useState([]);
   const [visitanteEditando, setVisitanteEditando] = useState(null);
 
-  // Cargar los visitantes guardados apenas se monta el componente
   useEffect(() => {
     cargarVisitantes();
   }, []);
@@ -24,11 +24,9 @@ function VisitantesPage() {
 
   function handleGuardar(datosVisitante) {
     if (visitanteEditando) {
-      // Modo edición
       actualizarVisitante(visitanteEditando.id, datosVisitante);
       setVisitanteEditando(null);
     } else {
-      // Modo creación
       guardarVisitante(datosVisitante);
     }
     cargarVisitantes();
@@ -51,8 +49,15 @@ function VisitantesPage() {
   }
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Gestión de Visitantes</h2>
+    <div className="visitantes-page">
+      <div className="banderines">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div className="visitantes-header">
+        <h2>Visitantes</h2>
+        <span>Gestión de entradas al parque</span>
+      </div>
 
       <VisitanteForm
         key={visitanteEditando ? visitanteEditando.id : "nuevo"}

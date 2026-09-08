@@ -1,39 +1,34 @@
 function VisitanteList({ visitantes, onEditar, onEliminar }) {
   if (visitantes.length === 0) {
-    return <p>No hay visitantes registrados todavía.</p>;
+    return <p className="visitante-vacio">Todavía no hay visitantes registrados.</p>;
+  }
+
+  function claseFranja(tipo) {
+    if (tipo === "VIP") return "boleto-franja vip";
+    if (tipo === "Niño") return "boleto-franja niño";
+    return "boleto-franja";
   }
 
   return (
-    <table border="1" cellPadding="8" style={{ width: "100%", textAlign: "left" }}>
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Edad</th>
-          <th>Tipo de entrada</th>
-          <th>Fecha de ingreso</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {visitantes.map((visitante) => (
-          <tr key={visitante.id}>
-            <td>{visitante.nombre}</td>
-            <td>{visitante.edad}</td>
-            <td>{visitante.tipoEntrada}</td>
-            <td>{visitante.fechaIngreso}</td>
-            <td>
-              <button onClick={() => onEditar(visitante)}>Editar</button>
-              <button
-                onClick={() => onEliminar(visitante.id)}
-                style={{ marginLeft: "8px" }}
-              >
-                Eliminar
-              </button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className="visitantes-lista">
+      {visitantes.map((visitante) => (
+        <div className="boleto" key={visitante.id}>
+          <div className={claseFranja(visitante.tipoEntrada)}></div>
+          <div className="boleto-info">
+            <span className="nombre">{visitante.nombre}</span>
+            <span className="detalle">{visitante.edad} años</span>
+            <span className="detalle">{visitante.tipoEntrada}</span>
+            <span className="detalle">{visitante.fechaIngreso}</span>
+          </div>
+          <div className="boleto-acciones">
+            <button onClick={() => onEditar(visitante)}>Editar</button>
+            <button className="eliminar" onClick={() => onEliminar(visitante.id)}>
+              Eliminar
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
 

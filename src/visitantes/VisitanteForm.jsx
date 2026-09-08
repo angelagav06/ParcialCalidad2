@@ -14,40 +14,37 @@ function VisitanteForm({ visitanteEditando, onGuardar, onCancelar }) {
       return;
     }
 
-    const datosVisitante = {
-      nombre,
-      edad,
-      tipoEntrada,
-      fechaIngreso,
-    };
-
-    onGuardar(datosVisitante);
+    onGuardar({ nombre, edad, tipoEntrada, fechaIngreso });
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
-      <h3>{visitanteEditando ? "Editar Visitante" : "Nuevo Visitante"}</h3>
+    <form className="visitante-form" onSubmit={handleSubmit} autoComplete="off">
+      <h3>{visitanteEditando ? "Editar visitante" : "Nuevo visitante"}</h3>
 
-      <div>
-        <label>Nombre: </label>
+      <div className="campo">
+        <label>Nombre</label>
         <input
           type="text"
+          name="nombre-visitante"
+          autoComplete="off"
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
         />
       </div>
 
-      <div>
-        <label>Edad: </label>
+      <div className="campo">
+        <label>Edad</label>
         <input
           type="number"
+          name="edad-visitante"
+          autoComplete="off"
           value={edad}
           onChange={(e) => setEdad(e.target.value)}
         />
       </div>
 
-      <div>
-        <label>Tipo de entrada: </label>
+      <div className="campo">
+        <label>Tipo de entrada</label>
         <select
           value={tipoEntrada}
           onChange={(e) => setTipoEntrada(e.target.value)}
@@ -58,20 +55,22 @@ function VisitanteForm({ visitanteEditando, onGuardar, onCancelar }) {
         </select>
       </div>
 
-      <div>
-        <label>Fecha de ingreso: </label>
+      <div className="campo">
+        <label>Fecha de ingreso</label>
         <input
           type="date"
+          name="fecha-ingreso-visitante"
+          autoComplete="off"
           value={fechaIngreso}
           onChange={(e) => setFechaIngreso(e.target.value)}
         />
       </div>
 
-      <button type="submit">
+      <button type="submit" className="btn-primario">
         {visitanteEditando ? "Guardar cambios" : "Agregar visitante"}
       </button>
       {visitanteEditando && (
-        <button type="button" onClick={onCancelar} style={{ marginLeft: "10px" }}>
+        <button type="button" className="btn-secundario" onClick={onCancelar}>
           Cancelar
         </button>
       )}
