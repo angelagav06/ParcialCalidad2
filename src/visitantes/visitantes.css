@@ -1,0 +1,200 @@
+.visitantes-page {
+  font-family: 'Inter', sans-serif;
+  color: #4A3B52;
+  background: #FFFBF5;
+  padding: 32px 24px 60px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.banderines {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 18px;
+}
+
+.banderines span {
+  width: 22px;
+  height: 26px;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.banderines span:nth-child(6n+1) { background: #F6C9D4; }
+.banderines span:nth-child(6n+2) { background: #CDEEE0; }
+.banderines span:nth-child(6n+3) { background: #E3D9F5; }
+.banderines span:nth-child(6n+4) { background: #FCE3D0; }
+.banderines span:nth-child(6n+5) { background: #F6C9D4; }
+.banderines span:nth-child(6n+6) { background: #CDEEE0; }
+
+.visitantes-header {
+  margin-bottom: 28px;
+}
+
+.visitantes-header h2 {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #6B5570;
+  margin: 0 0 4px;
+}
+
+.visitantes-header span {
+  font-size: 0.9rem;
+  color: #9c8ba3;
+}
+
+/* --- Formulario --- */
+.visitante-form {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 32px;
+  max-width: 480px;
+  box-shadow: 0 3px 0 #E3D9F5;
+}
+
+.visitante-form h3 {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 1.2rem;
+  margin-top: 0;
+  color: #6B5570;
+}
+
+.visitante-form .campo {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.visitante-form label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #9c8ba3;
+}
+
+.visitante-form input,
+.visitante-form select {
+  font-family: 'Inter', sans-serif;
+  padding: 10px 12px;
+  border: 2px solid #FCE3D0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background: #FFFBF5;
+  color: #4A3B52;
+}
+
+.visitante-form input:focus,
+.visitante-form select:focus {
+  outline: none;
+  border-color: #F6C9D4;
+}
+
+.btn-primario {
+  font-family: 'Baloo 2', sans-serif;
+  background: #F6C9D4;
+  color: #6B2E45;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.btn-primario:hover {
+  transform: translateY(-2px);
+}
+
+.btn-secundario {
+  font-family: 'Inter', sans-serif;
+  background: transparent;
+  color: #9c8ba3;
+  border: 2px solid #E3D9F5;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* --- Lista de visitantes --- */
+.visitantes-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 640px;
+}
+
+.visitante-vacio {
+  color: #9c8ba3;
+  font-style: italic;
+}
+
+.boleto {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  gap: 12px;
+  padding: 4px;
+}
+
+.boleto-franja {
+  width: 8px;
+  align-self: stretch;
+  border-radius: 4px;
+  background: #CDEEE0;
+}
+
+.boleto-franja.vip {
+  background: #F6C9D4;
+}
+
+.boleto-franja.niño {
+  background: #E3D9F5;
+}
+
+.boleto-info {
+  flex: 1;
+  padding: 10px 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  align-items: center;
+}
+
+.boleto-info .nombre {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #4A3B52;
+}
+
+.boleto-info .detalle {
+  font-size: 0.82rem;
+  color: #9c8ba3;
+}
+
+.boleto-acciones {
+  display: flex;
+  gap: 6px;
+  padding: 0 12px;
+}
+
+.boleto-acciones button {
+  border: none;
+  background: #FCE3D0;
+  color: #6B4423;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.boleto-acciones button.eliminar {
+  background: #F6C9D4;
+  color: #6B2E45;
+}
