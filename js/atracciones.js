@@ -222,6 +222,11 @@ function editarAtraccion(id) {
 }
 
 
+// Hacer disponible la función para los botones HTML
+
+window.editarAtraccion = editarAtraccion;
+
+
 // CANCELAR EDICIÓN
 
 btnCancelar.addEventListener("click", function () {
@@ -266,6 +271,11 @@ function eliminarAtraccion(id) {
 
     mostrarAtracciones();
 }
+
+
+// Hacer disponible la función para los botones HTML
+
+window.eliminarAtraccion = eliminarAtraccion;
 
 
 // BUSCAR
